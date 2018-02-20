@@ -1,0 +1,86 @@
+html,body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    height: 100%;
+    counter-reset: num-fieldset;
+}
+#app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#app > *:first-child {
+    width: 100%;
+}
+#app > *:not(:first-child) {
+    flex: 1;
+}
+fieldset {
+    margin: 1.5em;
+    padding: 1.5em 2em;
+}
+fieldset > legend {
+    color: chocolate;
+}
+fieldset > legend::before {
+    counter-increment: num-fieldset;
+    content: counter(num-fieldset) " - ";
+    font-weight: bold;
+}
+fieldset input {
+    width: calc(100% - 1.5em);
+    padding: 0.8em 0.5em;
+    margin : 0.1em 0;
+}
+.members-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.members-list > article {
+    flex: 1;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: 0.5em;
+    padding: 1em;
+}
+.members-list > article:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.members-list > article .icon {
+    position: absolute;
+    border : 1px solid grey;
+    color: grey;
+    border-radius: 100%;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+    top: 0;
+}
+.members-list > article .icon:hover {
+    background-color: grey;
+    color: white;
+    font-weight: bold;
+}
+.members-list > article .icon.close {
+    right: 0;
+}
+.members-list > article .icon.close::before {
+    content: "X";
+}
+.members-list > article .icon.edit {
+    right: 2.1em;
+
+}
+.members-list > article .icon.edit:before {
+    content: "E";
+}
+.members-list > article img {
+    max-width: 100%;
+}

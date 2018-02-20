@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AngularJs</title>
+    <link href="css/app.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<section  ng-app="app" ng-controller="appCtrl" data-ng-init="init()">
+
+    <h3 ng-attr-title="{{ title }}">{{ title }}</h3>
+
+    <fieldset>
+        <legend>Binding & conditions</legend>
+        <button ng-click="startCounter()">
+            Start counter
+        </button>
+        <button ng-click="stopCounter()">
+            Reset counter
+        </button>
+        &nbsp;&nbsp;
+        <span>{{ counter }}</span>
+        Counter is
+        <b ng-if="counter % 2 !== 0">ODD</b>
+        <b ng-if="counter % 2 === 0">EVEN</b>
+    </fieldset>
+
+    <fieldset>
+        <legend>Tow-way binding</legend>
+        <input ng-model="userForm.nom" type="text" placeholder="Nom" />
+        <input ng-model="userForm.prenom" type="text" placeholder="Prénom" />
+        <input ng-model="userForm.birth" type="date" placeholder="Date de naissance" />
+        <input ng-model="userForm.tel" type="tel" placeholder="Tél" />
+        <input ng-model="userForm.email" type="email" placeholder="Email" />
+        <input ng-model="userForm.adresse" type="text" placeholder="Adresse" />
+        <button ng-click="addMember()" style="font-size:150%;">
+            <b ng-if="userForm.guid">
+                Edit Member <i>{{ userForm.nom }}</i>
+            </b>
+            <b ng-if="!userForm.guid">
+                Add Member <i>{{ userForm.nom }}</i>
+            </b>
+        </button>
+    </fieldset>
+
+    <fieldset>
+        <legend>Loop</legend>
+        <section class="members-list">
+            <article ng-repeat="(guid, member) in members">
+                <span class="icon close" ng-click="removeMember(guid)"></span>
+                <span class="icon edit" ng-click="editMember(guid, member)"></span>
+                <img src="https://www.w3schools.com/w3css/img_avatar3.png" />
+                <h4>
+                    <b>{{ member.prenom }} {{ member.nom }}</b>
+                </h4>
+                <span v-if="member.birth">{{ member.birth | age }} ans</span>
+                <div>
+                    <label><u>Contact</u> : </label>
+                    <div>{{ member.tel }}</div>
+                    <div>{{ member.email }}</div>
+                    <div>{{ member.adresse }}</div>
+                </div>
+            </article>
+        </section>
+    </fieldset>
+
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-database.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
