@@ -41,7 +41,6 @@ app.controller("appCtrl", function($rootScope, $scope, $interval, scopeService){
     };
 
     $scope.init = function() {
-        console.log(1);
         // Init firebase
         firebase.initializeApp({
             apiKey: "AIzaSyC8hI-mObh6_zC4CHCsErTcfSu3msojp4o",
