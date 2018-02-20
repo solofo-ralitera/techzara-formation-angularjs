@@ -27,7 +27,7 @@ app.service('scopeService', function() {
     };
 });
 app.controller("appCtrl", function($rootScope, $scope, $interval, scopeService){
-    $scope.title = "Vue.js Getting Started";
+    $scope.title = "AngularJs Getting Started";
     $scope.counter = 0;
     $scope.members = [];
     $scope.userForm = {
