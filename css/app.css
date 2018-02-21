@@ -50,6 +50,9 @@ fieldset input {
 .members-list > article:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+.members-list > article.highlighted {
+    background-color: burlywood;
+}
 .members-list > article .icon {
     position: absolute;
     border : 1px solid grey;
@@ -80,7 +83,8 @@ fieldset input {
 }
 .members-list > article .icon.edit:before {
     content: "✍";
-    font-size: 2.2em;
+    font-size: 2em;
+    line-height: 0.5em;
 }
 .members-list > article img {
     max-width: 100%;
