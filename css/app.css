@@ -72,14 +72,15 @@ fieldset input {
     right: 0;
 }
 .members-list > article .icon.close::before {
-    content: "X";
+    content: "✖️";
 }
 .members-list > article .icon.edit {
     right: 2.1em;
 
 }
 .members-list > article .icon.edit:before {
-    content: "E";
+    content: "✍";
+    font-size: 2.2em;
 }
 .members-list > article img {
     max-width: 100%;
