@@ -90,4 +90,5 @@ fieldset input {
 }
 .members-list > article img {
     max-width: 100%;
+    cursor: pointer;
 }
